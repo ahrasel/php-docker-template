@@ -49,14 +49,14 @@ services:
     networks:
       - laravel
 
-  composer:
-    image: composer:latest
-    container_name: ${COMPOSER_CONTAINER_NAME}
-    volumes:
-      - ./src:/var/www/html
-    working_dir: /var/www/html
-    networks:
-      - laravel
+  # composer:
+  #   image: composer:latest
+  #   container_name: ${COMPOSER_CONTAINER_NAME}
+  #   volumes:
+  #     - ./src:/var/www/html
+  #   working_dir: /var/www/html
+  #   networks:
+  #     - laravel
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
@@ -72,19 +72,19 @@ services:
     networks:
       - laravel
 
-  artisan:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: ${ARTISAN_CONTAINER_NAME}
-    volumes:
-      - ./src:/var/www/html
-    depends_on:
-      - mysql
-    working_dir: /var/www/html
-    entrypoint: ["/var/www/html/artisan"]
-    networks:
-      - laravel
+  # artisan:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: ${ARTISAN_CONTAINER_NAME}
+  #   volumes:
+  #     - ./src:/var/www/html
+  #   depends_on:
+  #     - mysql
+  #   working_dir: /var/www/html
+  #   entrypoint: ["/var/www/html/artisan"]
+  #   networks:
+  #     - laravel
 
   # npm:
   #   image: node:14.17.6
